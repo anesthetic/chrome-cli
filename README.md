@@ -13,5 +13,5 @@ npong is a command line utility for verBen
 #### Manual
 - Save the 'npong' binary to a location in your PATH (i.e. `/usr/local/bin/`)
 
-[#Secondary](FFFF)
+[#Secondary](UTIL.md)
 
