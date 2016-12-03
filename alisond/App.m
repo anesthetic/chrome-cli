@@ -28,20 +28,21 @@ static NSString * const kJsPrintSource = @"(function() { return document.getElem
     printf("Waiting for chrome to start...\n");
     [chrome activate];
     NSDate *start = [NSDate date];
-
-    // Wait until chrome has one or more windows or give up if MaxLaunchTime is reached
-    while ([[NSDate date] timeIntervalSinceDate:start] < kMaxLaunchTimeInSeconds) {
-        // Sleep for 100ms
-        usleep(100000);
-
-        if ([chrome.windows count] > 0) {
-            return chrome;
-        }
-    }
+ 
 
     printf("Chrome did not start for %ld seconds\n", kMaxLaunchTimeInSeconds);
     exit(1);
 }
+
+
+
+- (void)recordWindows:(Arguments *)args {
+    for (chromeWindow *window in self.chrome.windows) {
+        printf("[%ld] %s\n", (long)window.id, window.name.UTF8String);
+    }
+}
+
+
 
 
 - (void)listWindows:(Arguments *)args {

@@ -68,7 +68,7 @@
     printf("Usage:\n");
 
     for (Handler *handler in self->_handlers) {
-        printf("%s %s  (%s)\n", [self appName].UTF8String, handler.pattern.UTF8String, handler.description.UTF8String);
+        printf("\t\t%s %s  (%s)\n", [self appName].UTF8String, handler.pattern.UTF8String, handler.description.UTF8String);
     }
 }
 
